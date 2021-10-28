@@ -6,9 +6,13 @@
 
     <depends>com.intellij.modules.platform</depends>
 
+    <!-- This plugin depends on the python plugin being enabled in IntelliJ (will also work in PyCharm) -->
+    <depends>com.intellij.modules.python</depends>
+
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.rishivijayv.pycharmsampleplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.rishivijayv.pycharmsampleplugin.services.MyProjectService"/>
+        <lang.inspectionSuppressor language="Python" implementationClass="com.github.rishivijayv.pycharmsampleplugin.FlakeSuppressor" />
     </extensions>
 
     <applicationListeners>
